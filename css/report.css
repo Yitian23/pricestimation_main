@@ -1,0 +1,129 @@
+
+        /* ---------- DOWNLOAD BUTTON ---------- */
+        .download-container {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            margin-top: -40px;
+            padding-right: 20px;
+        }
+
+        .download-btn {
+            background-color: #001d9e;
+            color: white;
+            border: none;
+            margin-top: 55px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            min-width: 120px;
+        }
+
+        .download-btn:hover {
+            background-color: #0033aa;
+        }
+
+        /* ---------- REPORT COLUMNS CONTAINER ---------- */
+        .report-columns-container {
+            padding: 13px 20px 20px;
+        }
+
+        .report-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-auto-rows: 1fr;
+            align-items: stretch;
+        }
+
+        /* ---------- REPORT COLUMN ---------- */
+        .report-column {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 500px;
+            border-radius: 8px;
+            overflow: visible;
+        }
+
+        .column-header {
+            background-color: #001d9e;
+            color: white;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: #000000 1px solid;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ---------- REPORT ITEMS ---------- */
+        .report-item {
+            margin: 10px;
+            padding: 25px 25px;
+            margin-top: 5px;
+            border: 1px solid #000000;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-height: 140px;
+            box-sizing: border-box;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .report-item:hover {
+            transform: scale(0.98);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .client-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        .report-type {
+            color: #666;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .client-address {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #001d9e;
+        }
+
+        .report-date {
+            color: #666;
+            font-size: 14px;
+        }

@@ -1,0 +1,184 @@
+/* ===========================================
+   REGISTER PAGE STYLES - DESKTOP
+   =========================================== */
+
+/* Override body styles specifically for register page */
+body.register-page {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('../assets/register-bg.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Back button in top-left corner */
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+/* Back button link styling */
+.back-button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #0044cc;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Back button hover effect */
+.back-button a:hover {
+    background-color: #001d9e;
+    transform: scale(1.1);
+}
+
+/* Main container for register form */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    width: 100%;
+}
+
+/* White form section */
+.register-section {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    position: relative;
+    margin-top: 120px; /* Add space for the heading */
+}
+
+/* Register page heading - FIXED POSITIONING */
+.register-section h1 {
+    text-align: center;
+    color: white;
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    position: fixed; /* Changed from absolute to fixed */
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    letter-spacing: 10px;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Responsive heading for smaller desktop screens */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .register-section h1 {
+        font-size: 42px;
+        letter-spacing: 8px;
+        top: 70px;
+    }
+    
+    .register-section {
+        margin-top: 110px;
+    }
+}
+
+@media (max-width: 900px) and (min-width: 768px) {
+    .register-section h1 {
+        font-size: 38px;
+        letter-spacing: 6px;
+        top: 60px;
+    }
+    
+    .register-section {
+        margin-top: 100px;
+        max-width: 500px;
+    }
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Row for first and last name */
+.name-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* Individual name field container */
+.name-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form label styling */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1px;
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+/* Input focus effects */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #000000;
+    background-color: white;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+    background-color: #0044cc;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-self: center;
+    width: 150px;
+}
+
+/* Submit button hover effect */
+button[type="submit"]:hover {
+    background-color: #001d9e;
+}
