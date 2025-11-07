@@ -53,9 +53,10 @@ html, body {
 }
 
 .btn-cancel {
-    background-color: #6c757d;
-    color: white;
-    border: none;
+    background-color: white !important;
+    border: 2px solid #333 !important;
+    color: rgb(0, 0, 0) !important;
+    font-weight: bold !important;
     padding: 12px 24px;
     border-radius: 5px;
     cursor: pointer;
@@ -70,7 +71,7 @@ html, body {
 }
 
 .btn-save {
-    background-color: #28a745;
+    background-color: #0044cc;
     color: white;
     border: none;
     padding: 12px 30px;
@@ -83,11 +84,11 @@ html, body {
 }
 
 .btn-save:hover {
-    background-color: #218838;
+    background-color: #0019de;
 }
 
 .btn-create {
-    background-color: #28a745;
+    background-color: #0044cc;
     color: white;
     border: none;
     padding: 10px 24px;
@@ -99,7 +100,7 @@ html, body {
 }
 
 .btn-create:hover {
-    background-color: #218838;
+    background-color: #0019de;
 }
 
 .btn-cancel-modal {
@@ -288,7 +289,7 @@ html, body {
 .form-select,
 .form-textarea {
     padding: 10px;
-    border: 1px solid #dee2e6;
+    border: 2px solid #333;
     border-radius: 5px;
     font-size: 14px;
 }
@@ -297,7 +298,7 @@ html, body {
 .form-select,
 .form-textarea {
     width: 100%;
-    border: 2px solid #dee2e6;
+    border: 2px solid #333;
     box-sizing: border-box;
 }
 
@@ -322,8 +323,8 @@ html, body {
     justify-content: flex-end;
     gap: 15px;
     margin-top: 30px;
-    margin-bottom: 30px;  /* ← Changed from 5px to 30px */
-    padding-bottom: 20px;  /* ← Added extra padding for safety */
+    margin-bottom: 30px;  /* â† Changed from 5px to 30px */
+    padding-bottom: 20px;  /* â† Added extra padding for safety */
 }
 .date-time-row {
     display: flex;
@@ -504,6 +505,8 @@ html, body {
     text-transform: uppercase;
     position: relative;
     z-index: 1 !important;
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .status-new-lead {
@@ -775,7 +778,7 @@ body:has(.dropdown-sort-content.show) .property-table tbody td .status-badge {
 
 .lead-info-label {
     font-weight: 600;
-    width: 150px;
+    width: 80px;
     color: #333;
 }
 
@@ -837,6 +840,7 @@ body:has(.dropdown-sort-content.show) .property-table tbody td .status-badge {
 }
 
 .notes-textarea-editable {
+    box-sizing: border-box;
     width: 100%;
     min-height: 150px;
     padding: 15px;
@@ -908,7 +912,6 @@ body:has(.dropdown-sort-content.show) .property-table tbody td .status-badge {
     padding: 15px;
     max-height: 300px;
     overflow-y: auto;
-    
 }
 
 .all-tasks-container::-webkit-scrollbar {
@@ -1044,17 +1047,18 @@ body:has(.dropdown-sort-content.show) .property-table tbody td .status-badge {
 
 .task-count-badge {
     position: absolute;
-    top: -5px;
-    right: 10px;
-    background-color: red;
+    top: 1px;
+    right: 15px;
+    background-color: #dc3545;
     color: white;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 700;
 }
 
 .activity-tasks-container {
@@ -1323,6 +1327,13 @@ body:has(.dropdown-sort-content.show) .property-table tbody td .status-badge {
 .modal-btn-cancel {
     background-color: #6c757d;
     color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .modal-btn-cancel:hover {
@@ -1413,4 +1424,315 @@ body:has(.dropdown-sort-content.show) .property-table tbody td .status-badge {
 /* ===== Performance Optimization ===== */
 * {
     -webkit-overflow-scrolling: touch;
+}
+
+/* ===== MOBILE TASK MODAL FIX - HIGHEST PRIORITY ===== */
+@media (max-width: 767px) {
+    /* Target the modal overlay when it's shown */
+    .modal-overlay.show {
+        display: flex !important;
+    }
+
+    /* Force the activity task modal to be smaller */
+    .activity-task-modal {
+        width: calc(100vw - 40px) !important;
+        max-width: 340px !important;
+        padding: 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Force grid layout for form rows */
+    .activity-task-modal .form-row {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .activity-task-modal .form-row .form-group {
+        flex: none !important;
+        width: 100% !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Date/Time row - 2 columns (no Queue here) */
+    .activity-task-modal .date-time-row {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .activity-task-modal .date-time-row .form-group {
+        flex: none !important;
+        width: 100% !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Queue field - full width below Date/Time, above Notes */
+    .activity-task-modal .date-time-row .form-group:nth-child(3) {
+        grid-column: 1 / -1 !important;
+        max-width: 100% !important;
+    }
+
+    /* CRITICAL FIX: Reduce form input sizes */
+    .activity-task-modal .form-input,
+    .activity-task-modal .form-select,
+    .activity-task-modal .form-textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 10px 12px !important;
+        border: 2px solid #333 !important;
+        border-radius: 8px !important;
+        font-size: 14px !important;
+        height: auto !important;
+        min-height: 40px !important;
+    }
+
+    .activity-task-modal .form-textarea {
+        min-height: 80px !important;
+        resize: vertical !important;
+    }
+
+    .activity-task-modal .form-label {
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        margin-bottom: 6px !important;
+        display: block !important;
+    }
+
+    .activity-task-modal .form-group {
+        margin-bottom: 12px !important;
+    }
+
+    .activity-task-modal .modal-header {
+        font-size: 20px !important;
+        font-weight: 600 !important;
+        margin-bottom: 15px !important;
+    }
+
+    .activity-task-modal .modal-buttons {
+        display: flex !important;
+        gap: 12px !important;
+        margin-top: 15px !important;
+    }
+
+    .activity-task-modal .modal-buttons button {
+        flex: 1 !important;
+        width: 50% !important;
+        padding: 12px 20px !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        border-radius: 8px !important;
+        cursor: pointer !important;
+        box-sizing: border-box !important;
+    }
+
+    .activity-task-modal .btn-create {
+        background-color: #001d9e !important;
+        color: white !important;
+        border: none !important;
+    }
+
+    .activity-task-modal .btn-cancel-modal {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+
+    .activity-task-modal .modal-buttons {
+        display: flex !important;
+        gap: 12px !important;
+        margin-top: 15px !important;
+        justify-content: center !important;
+    }
+
+    .activity-task-modal .modal-buttons button {
+        flex: 1 !important;
+        width: 50% !important;
+        padding: 12px 20px !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        border-radius: 8px !important;
+        cursor: pointer !important;
+        box-sizing: border-box !important;
+    }
+
+    .activity-task-modal .btn-create {
+        background-color: #001d9e !important;
+        color: white !important;
+        border: none !important;
+    }
+
+    .activity-task-modal .btn-cancel-modal {
+        background-color: #6c757d !important;
+        color: white !important;
+        border: none !important;
+    }
+
+    /* FIX: Add New Property Button visibility */
+    .btn-add-property {
+        background-color: #0044cc !important;
+        color: white !important;
+        border: none !important;
+        padding: 10px 20px !important;
+        border-radius: 6px !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+    }
+
+    .btn-add-property:hover {
+        background-color: #003399 !important;
+    }
+}
+
+/* Mobile S - 320px */
+@media (max-width: 374px) {
+    .activity-task-modal {
+        max-width: 300px !important;
+        padding: 18px !important;
+    }
+
+    .activity-task-modal .form-row {
+        gap: 10px !important;
+    }
+
+    .activity-task-modal .date-time-row {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+    }
+
+    .activity-task-modal .date-time-row .form-group:nth-child(3) {
+        grid-column: 1 / -1 !important;
+        max-width: 100% !important;
+    }
+
+    .activity-task-modal .form-input,
+    .activity-task-modal .form-select,
+    .activity-task-modal .form-textarea {
+        padding: 8px 10px !important;
+        font-size: 13px !important;
+        min-height: 38px !important;
+    }
+
+    .activity-task-modal .form-textarea {
+        min-height: 70px !important;
+    }
+
+    .activity-task-modal .form-label {
+        font-size: 12px !important;
+    }
+
+    .activity-task-modal .modal-header {
+        font-size: 18px !important;
+    }
+
+    .activity-task-modal .modal-buttons button {
+        padding: 10px 16px !important;
+        font-size: 14px !important;
+    }
+
+    .activity-task-modal .btn-create {
+        background-color: #001d9e !important;
+        color: white !important;
+        border: none !important;
+    }
+
+    .activity-task-modal .btn-cancel-modal {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+
+    .btn-add-property {
+        font-size: 13px !important;
+        padding: 8px 16px !important;
+    }
+}
+
+/* Mobile L - 425px to 767px */
+@media (min-width: 425px) and (max-width: 767px) {
+    .activity-task-modal {
+        max-width: 370px !important;
+        padding: 22px !important;
+    }
+
+    .activity-task-modal .form-row {
+        gap: 14px !important;
+    }
+
+    .activity-task-modal .date-time-row {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 14px !important;
+    }
+
+    .activity-task-modal .date-time-row .form-group:nth-child(3) {
+        grid-column: 1 / -1 !important;
+        max-width: 100% !important;
+    }
+
+    .activity-task-modal .form-input,
+    .activity-task-modal .form-select,
+    .activity-task-modal .form-textarea {
+        padding: 11px 13px !important;
+        font-size: 15px !important;
+        min-height: 42px !important;
+    }
+
+    .activity-task-modal .form-textarea {
+        min-height: 90px !important;
+    }
+
+    .activity-task-modal .form-label {
+        font-size: 14px !important;
+    }
+
+    .activity-task-modal .modal-header {
+        font-size: 22px !important;
+    }
+
+    .activity-task-modal .modal-buttons button {
+        padding: 13px 22px !important;
+        font-size: 16px !important;
+    }
+
+    .activity-task-modal .btn-create {
+        background-color: #001d9e !important;
+        color: white !important;
+        border: none !important;
+    }
+
+    .activity-task-modal .btn-cancel-modal {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+
+    .btn-add-property {
+        font-size: 15px !important;
+        padding: 10px 20px !important;
+    }
 }

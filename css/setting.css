@@ -95,11 +95,10 @@
 }
 
 .dropdown-logout-btn i {
-    font-size: 12px;
+    font-size: 20px;
 }
 
 /* ========== LOGOUT MODAL ========== */
-/* ✅ Specific selector for logout modal to prevent conflicts */
 #logoutModal.modal {
     display: none;
     position: fixed;
@@ -124,100 +123,164 @@
     from { opacity: 0; }
     to { opacity: 1; }
 }
-/* ✅ Fixed and Centered Modal */
- /* ===== Modal Box ===== */
-    /* ✅ Specific selector for logout modal content */
-    #logoutModal .modal-content {
-      background-color: white;
-      padding: 0px;
-      border-radius: 12px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      max-width: 440px; /* set max width */
-      min-height: 270px; /* set height */
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      animation: slideUp 0.3s ease;
-    }
+/* ===================== */
+/* 📱 MOBILE + TABLET RESPONSIVENESS */
+/* ===================== */
 
+/* ✅ Small Devices (phones up to 600px) */
+@media (max-width: 600px) {
+  #logoutModal .modal-content {
+    max-width: 90%;
+    padding: 25px 18px;
+    border-radius: 10px;
+  }
 
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  #logoutModal .modal-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 40px;
+  }
+
+  #logoutModal .modal-content h2 {
+    font-size: 22px;
+  }
+
+  #logoutModal .modal-content p {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  #logoutModal .modal-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #logoutModal .modal-btn {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 15px;
+  }
 }
 
-#logoutModal .modal-icon {
+/* ✅ Medium Devices (601px–768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+  #logoutModal .modal-content {
+    max-width: 85%;
+    padding: 30px 22px;
+  }
+
+  #logoutModal .modal-icon {
+    width: 75px;
+    height: 75px;
+    font-size: 45px;
+  }
+
+  #logoutModal .modal-content h2 {
+    font-size: 24px;
+  }
+
+  #logoutModal .modal-content p {
+    font-size: 15px;
+  }
+
+  #logoutModal .modal-btn {
+    padding: 11px 35px;
+    font-size: 15px;
+  }
+}
+
+/* ✅ Large Mobile / Small Tablet (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #logoutModal .modal-content {
+    max-width: 70%;
+    padding: 35px 25px;
+  }
+
+  #logoutModal .modal-icon {
     width: 80px;
     height: 80px;
-    background-color: #ffc107;
-    border-radius: 50%;
-    margin: 0 auto 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-    color: white;
-}
+    font-size: 48px;
+  }
 
-#logoutModal .modal-content h2 {
-    margin: 0 0 15px 0;
-    color: #333;
-    font-size: 28px;
-    font-weight: bold;
-}
+  #logoutModal .modal-content h2 {
+    font-size: 26px;
+  }
 
-#logoutModal .modal-content p {
-    margin: 0 0 35px 0;
-    color: #666;
+  #logoutModal .modal-content p {
+    font-size: 15px;
+  }
+
+  #logoutModal .modal-btn {
+    padding: 12px 38px;
     font-size: 16px;
+  }
 }
 
-#logoutModal .modal-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
+/* ✅ Mobile Medium (max-width: 425px) */
+@media (max-width: 425px) {
+    #logoutModal .modal-content {
+        padding: 25px 18px;
+        max-width: 88%;
+    }
+
+    #logoutModal .modal-content h2 {
+        font-size: 22px;
+    }
+
+    #logoutModal .modal-content p {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    #logoutModal .modal-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 40px;
+    }
+
+    #logoutModal .modal-btn {
+        font-size: 14px;
+        padding: 8px 25px;
+        min-width: 95px;
+    }
 }
 
-#logoutModal .modal-btn {
-    padding: 12px 40px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    min-width: 120px;
-}
+/* ✅ Mobile Small (max-width: 375px) */
+@media (max-width: 375px) {
+    #logoutModal .modal-content {
+        padding: 20px 15px;
+        max-width: 90%;
+    }
 
-#logoutModal .modal-btn-yes {
-    background-color: #dc3545;
-    color: white;
-}
+    #logoutModal .modal-content h2 {
+        font-size: 20px;
+    }
 
-#logoutModal .modal-btn-yes:hover {
-    background-color: #c82333;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
-}
+    #logoutModal .modal-content p {
+        font-size: 13px;
+    }
 
-#logoutModal .modal-btn-no {
-    background-color: #6c757d;
-    color: white;
-}
+    #logoutModal .modal-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 35px;
+    }
 
-#logoutModal .modal-btn-no:hover {
-    background-color: #5a6268;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+    #logoutModal .modal-btn {
+        font-size: 13px;
+        padding: 8px 20px;
+        min-width: 85px;
+    }
+
+    #logoutModal .modal-buttons {
+        gap: 10px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #logoutModal .modal-btn {
+        width: 100%;
+    }
 }
 
 /* ========== SIDEBAR ========== */
@@ -362,7 +425,6 @@
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    margin-left: 10px;
     transition: background-color 0.3s;
 }
 
@@ -517,4 +579,132 @@ input:checked + .slider:before {
 
 .success-message.show {
     display: block;
+}
+
+
+/* ===== Modal Box ===== */
+#logoutModal .modal-content {
+    background-color: white !important;
+    padding: 35px 25px 30px 25px !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    min-height: 270px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+    animation: slideUp 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+#logoutModal .modal-icon {
+    width: 80px !important;
+    height: 80px !important;
+    background-color: #ffc107 !important;
+    border-radius: 50% !important;
+    margin: 0 auto 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 50px !important;
+    color: white !important;
+}
+
+#logoutModal .modal-content h2 {
+    margin: 0 0 12px 0 !important;
+    color: #333 !important;
+    font-size: 28px !important;
+    font-weight: bold !important;
+}
+
+#logoutModal .modal-content p {
+    margin: 0 0 30px 0 !important;
+    color: #666 !important;
+    font-size: 16px !important;
+}
+
+#logoutModal .modal-buttons {
+    display: flex !important;
+    gap: 15px !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+}
+
+#logoutModal .modal-btn {
+    padding: 12px 40px !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: all 0.3s !important;
+    min-width: 120px !important;
+}
+
+#logoutModal .modal-btn-yes {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+#logoutModal .modal-btn-yes:hover {
+    background-color: #c82333 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3) !important;
+}
+
+#logoutModal .modal-btn-no {
+    background-color: #6c757d !important;
+    color: white !important;
+}
+
+#logoutModal .modal-btn-no:hover {
+    background-color: #5a6268 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3) !important;
+}
+
+/* ===================== */
+/* 📱 RESPONSIVE (Below 767px only) */
+/* ===================== */
+@media (max-width: 767px) {
+    #logoutModal .modal-content {
+        max-width: 80% !important;
+        padding: 28px 20px !important;
+        border-radius: 10px !important;
+    }
+
+    #logoutModal .modal-icon {
+        width: 65px !important;
+        height: 65px !important;
+        font-size: 40px !important;
+        margin-bottom: 15px !important;
+    }
+
+    #logoutModal .modal-content h2 {
+        font-size: 22px !important;
+    }
+
+    #logoutModal .modal-content p {
+        font-size: 14px !important;
+        margin-bottom: 25px !important;
+    }
+
+    #logoutModal .modal-buttons {
+        gap: 10px !important;
+        width: 50% !important;
+    }
+
+    #logoutModal .modal-btn {
+        width: 100% !important;
+        font-size: 15px !important;
+        padding: 10px 0 !important;
+    }
 }

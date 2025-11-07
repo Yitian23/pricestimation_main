@@ -54,6 +54,7 @@ body.register-page {
     min-height: 100vh;
     padding: 20px;
     width: 100%;
+    position: relative;
 }
 
 /* White form section */
@@ -67,48 +68,94 @@ body.register-page {
     margin: 0 auto;
     padding-bottom: 10px;
     position: relative;
-    margin-top: 120px; /* Add space for the heading */
+    margin-top: 140px; /* Space for header above */
 }
 
-/* Register page heading - FIXED POSITIONING */
+/* Register page heading - ABSOLUTE POSITIONING (above form, not fixed to viewport) */
 .register-section h1 {
     text-align: center;
     color: white;
     font-size: 48px;
     font-weight: 900;
-    margin-bottom: 20px;
-    position: fixed; /* Changed from absolute to fixed */
-    top: 80px;
+    margin: 0;
+    position: absolute;
+    top: -100px; /* Position above the form */
     left: 50%;
     transform: translateX(-50%);
     z-index: 999;
     letter-spacing: 10px;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
+    width: max-content;
 }
 
-/* Responsive heading for smaller desktop screens */
-@media (max-width: 1024px) and (min-width: 768px) {
+/* Responsive heading for medium desktop screens (1200px - 1025px) */
+@media (max-width: 1200px) and (min-width: 1025px) {
+    .register-section h1 {
+        font-size: 44px;
+        letter-spacing: 9px;
+        top: -95px;
+    }
+    
+    .register-section {
+        margin-top: 135px;
+    }
+}
+
+/* Responsive heading for smaller desktop screens (1024px - 901px) */
+@media (max-width: 1024px) and (min-width: 901px) {
     .register-section h1 {
         font-size: 42px;
         letter-spacing: 8px;
-        top: 70px;
+        top: -90px;
     }
     
     .register-section {
-        margin-top: 110px;
+        margin-top: 130px;
     }
 }
 
-@media (max-width: 900px) and (min-width: 768px) {
+/* Responsive heading for small desktop (900px - 851px) */
+@media (max-width: 900px) and (min-width: 851px) {
     .register-section h1 {
         font-size: 38px;
-        letter-spacing: 6px;
-        top: 60px;
+        letter-spacing: 7px;
+        top: -85px;
     }
     
     .register-section {
-        margin-top: 100px;
+        max-width: 520px;
+        padding: 38px;
+        margin-top: 125px;
+    }
+}
+
+/* Responsive heading for smaller screens (850px - 801px) */
+@media (max-width: 850px) and (min-width: 801px) {
+    .register-section h1 {
+        font-size: 36px;
+        letter-spacing: 6px;
+        top: -80px;
+    }
+    
+    .register-section {
         max-width: 500px;
+        padding: 35px;
+        margin-top: 120px;
+    }
+}
+
+/* Responsive heading for very small desktop (800px - 768px) */
+@media (max-width: 800px) and (min-width: 768px) {
+    .register-section h1 {
+        font-size: 32px;
+        letter-spacing: 5px;
+        top: -75px;
+    }
+    
+    .register-section {
+        max-width: 480px;
+        padding: 32px;
+        margin-top: 115px;
     }
 }
 
