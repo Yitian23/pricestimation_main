@@ -11,11 +11,17 @@
     <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/tags_dropdown_fix.css" />
     <link rel="stylesheet" href="css/setting.css" />
+    <link rel="stylesheet" href="css/mobile.css">
     <title>Dashboard | Price Estimation</title>
 </head>
 <body>
     <!-- Top Navigation -->
     <div class="top-nav">
+         <button class="hamburger-menu" onclick="toggleSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <h1>
             <span class="logo"></span>
             Price Estimation
@@ -153,5 +159,6 @@
     <script src="script/dashboard.js"></script>
     <script src="script/setting.js"></script>
     <script src="auth_guard.js"></script>
+    <script src="script/mobile.js"></script>
 </body>
 </html>

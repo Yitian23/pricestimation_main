@@ -9,12 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/v4-shims.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/task.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
     <link rel="stylesheet" href="css/setting.css" />
     <title>Tasks | Price Estimation</title>
 </head>
 <body>
     <!-- Top Navigation -->
     <div class="top-nav">
+        <button class="hamburger-menu" onclick="toggleSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <h1>
             <span class="logo"></span>
             Price Estimation
@@ -31,8 +37,8 @@
                         <div class="dropdown-profile-pic">
                             <i class="fas fa-user"></i>
                         </div>
-                        <div class="dropdown-user-name">Loading...</div>
-                        <div class="dropdown-user-email">Loading...</div>
+                        <div class="dropdown-user-name">John Doe</div>
+                        <div class="dropdown-user-email">john.doe@example.com</div>
                     </div>
                     <div class="dropdown-body">
                         <button class="dropdown-logout-btn" onclick="showLogoutModal()">
@@ -69,6 +75,7 @@
         <a href="estimation.html" class="nav-item">Estimation</a>
         <a href="profile.html" class="nav-item">Profile</a>
     </nav>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
     <!-- Main Content -->
     <main class="main-content">
         <!-- Fixed Header Section -->
@@ -125,7 +132,7 @@
         <form id="createTaskForm">
             <div class="form-group">
                 <label class="form-label">Task Title *</label>
-                <input type="text" name="title" class="form-input" placeholder="Input Title" required>
+                <input type="text" name="title" class="form-input" placeholder="Meeting with Arvin Coronel" required>
             </div>
 
             <div class="form-row">
@@ -158,7 +165,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Assigned to:</label>
-                    <input type="text" name="assigned_to" class="form-input" placeholder="Agent Name">
+                    <input type="text" name="assigned_to" class="form-input" placeholder="Angelo Vert Valencia">
                 </div>
             </div>
 
@@ -179,7 +186,7 @@
 
             <div class="form-group">
                 <label class="form-label">Notes</label>
-                <textarea name="notes" class="form-textarea" placeholder="Input Notes"></textarea>
+                <textarea name="notes" class="form-textarea" placeholder="-Sent 100k proposal"></textarea>
             </div>
 
             <div class="modal-buttons">
@@ -192,5 +199,6 @@
     <script src="script/task.js"></script>
     <script src="script/setting.js"></script>
     <script src="auth_guard.js"></script>
+    <script src="script/mobile.js"></script>
 </body>
 </html>
