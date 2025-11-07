@@ -1,5 +1,5 @@
 {
   "name": "property-estimator",
   "description": "PHP + Python app hosted on Railway",
-  "require": {}
+  "require": {"php": "^8.0"}
 }
