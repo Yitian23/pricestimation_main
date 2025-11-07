@@ -55,17 +55,34 @@
         return;
     }
 
+    // Get the login button and store original text
+    const loginBtn = document.querySelector('button[onclick="login()"]');
+    const originalText = loginBtn.textContent;
+    
+    // Update button state
+    loginBtn.textContent = "Logging in...";
+    loginBtn.disabled = true;
+
     // Create FormData object
     const formData = new FormData();
     formData.append('username', usernameInput);
     formData.append('password', passwordInput);
 
     // Send AJAX request to PHP backend
-    fetch('login.php', {
+    fetch('login.php', {  // Updated path
         method: 'POST',
         body: formData
     })
-    .then(response => response.json())
+    .then(response => {
+        // First check if response is JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            return response.text().then(text => {
+                throw new Error(`Expected JSON but got: ${text.substring(0, 100)}`);
+            });
+        }
+        return response.json();
+    })
     .then(data => {
         if (data.success) {
             // Store user data in localStorage for frontend use
@@ -85,12 +102,14 @@
     })
     .catch(error => {
         console.error('Login error:', error);
-        errorMsg.textContent = "An error occurred. Please try again.";
+        errorMsg.textContent = "Server error. Please check if PHP is configured properly.";
     })
     .finally(() => {
         // Reset button state
-        loginBtn.textContent = originalText;
-        loginBtn.disabled = false;
+        if (loginBtn) {
+            loginBtn.textContent = originalText;
+            loginBtn.disabled = false;
+        }
     });
 }
   </script>
